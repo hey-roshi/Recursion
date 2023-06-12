@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+    private static List<String> result = new ArrayList<String>();
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            String string = scanner.next();
+            getSubSequence(0, string, "");
+            Collections.sort(result);
+            for (String j : result) {
+                System.out.println(j);
+            }
+
+            result.clear();
+        }
+    }
+
+    private static void getSubSequence(int idx, String input, String output) {
+        if (idx >= input.length()) {
+            result.add(output);
+            return;
+        }
+
+        getSubSequence(idx + 1, input, output + input.charAt(idx));
+        getSubSequence(idx + 1, input, output);
+    }
+}
