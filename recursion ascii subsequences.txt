@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+	private static int count  = 0;
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+ 		String string = sc.next();
+ 		getASCII(string, "");
+ 		System.out.println("\n" + count);
+    }
+
+	private static void getASCII(String input, String output) {
+ 		if(input.length() == 0) {
+ 			System.out.print(output + " ");
+ 			count++;
+ 			return;
+ 		}
+ 		int c0th = input.charAt(0);
+ 		char c0ch = input.charAt(0);
+ 		getASCII(input.substring(1), output);
+ 		getASCII(input.substring(1), output + c0ch);
+ 		getASCII(input.substring(1), output + c0th);
+ 	}
+}
